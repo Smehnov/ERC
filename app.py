@@ -10,7 +10,6 @@ from std_msgs.msg import String
 from geometry_msgs.msg import TwistStamped
 from cv_bridge import CvBridge, CvBridgeError
 import time
-import tf
 from ars import aruco_dict
 import cv2.aruco as aruco
 
