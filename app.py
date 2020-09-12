@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-import roslib
 import rospy
 from sensor_msgs.msg import CompressedImage
 from geometry_msgs.msg import TwistStamped
