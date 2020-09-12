@@ -12,7 +12,7 @@ from geometry_msgs.msg import TwistStamped
 from cv_bridge import CvBridge, CvBridgeError
 import time
 import tf
-# from ars import aruco_dict
+from ars import aruco_dict
 import cv2.aruco as aruco
 
 # ROS rate
@@ -175,13 +175,13 @@ class DummyController:
              0.0000843286034069024])
 
         parameters = aruco.DetectorParameters_create()
-        # corners, ids, rejected_img_points = aruco.detectMarkers(gray, aruco_dict, cameraMatrix=matrix_coefficients,
-        #                                                         distCoeff=distortion_coefficients,
-        #                                                         parameters=parameters)
-        # aruco.drawDetectedMarkers(img, corners)
-        # if len(ids) > 0 and self.last_time_aruco_saved - time.time() > 5:
-        #     self.last_time_aruco_saved = time.time()
-        #     cv2.imwrite(str(time.time()) + "_" + str(ids[0]) + ".png", img)
+        corners, ids, rejected_img_points = aruco.detectMarkers(gray, aruco_dict, cameraMatrix=matrix_coefficients,
+                                                                distCoeff=distortion_coefficients,
+                                                                parameters=parameters)
+        aruco.drawDetectedMarkers(img, corners)
+        if len(ids) > 0 and self.last_time_aruco_saved - time.time() > 5:
+            self.last_time_aruco_saved = time.time()
+            cv2.imwrite(str(time.time()) + "_" + str(ids[0]) + ".png", img)
 
 
 def main():
