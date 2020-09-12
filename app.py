@@ -187,7 +187,7 @@ class DummyController:
     def take_photo(self):
         print("PHOTO TAKEN")
         try:
-            cv2.imwrite("." + str(time.time()) + "taken.png", self.img)
+            cv2.imwrite("." + str(time.time()) + "taken.jpg", self.img)
         except:
             print("ERROR WHILE TAKING PHOTO")
 
