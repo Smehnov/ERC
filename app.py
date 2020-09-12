@@ -229,6 +229,7 @@ class DummyController:
     def set_kurs(self, alpha):
         # alpha in deg!!!!
         self.kurs = (float(alpha) / 180) * np.pi
+        print("self.kurs : ", round(self.kurs / np.pi * 180))
         self.find_kurs()
 
     def callback_imu(self, msg):
@@ -245,9 +246,9 @@ class DummyController:
             if abs(self.deltaKurs) > np.pi:
                 self.deltaKurs = self.deltaKurs - np.sign(self.deltaKurs) * (2 * np.pi)
 
-            # print("self.kurs : ",  round(self.kurs / np.pi * 180))
+
             #
-            # print("del kurs : ", round(self.deltaKurs / np.pi * 180))
+            print("del kurs : ", round(self.deltaKurs / np.pi * 180))
 
     def find_kurs(self, eps=EPSILON_RAD):
 
