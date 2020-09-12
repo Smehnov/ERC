@@ -13,130 +13,130 @@ import time
 import cv2.aruco as aruco
 import tf
 
-# aruco_dict = aruco.custom_dictionary(0, 7)
-# aruco_dict.bytesList = np.zeros(shape=(16, 7, 4), dtype=np.uint8)
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 0, 1, 1, 0],
-#                [1, 1, 1, 0, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[1] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 0, 1, 1, 0],
-#                [1, 0, 1, 1, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[2] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 1, 1, 1, 1],
-#                [1, 0, 1, 0, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[3] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 1, 1, 1, 0],
-#                [0, 1, 1, 1, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[4] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 0, 1, 1, 1],
-#                [0, 1, 1, 0, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[5] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 0, 1, 1, 1],
-#                [0, 0, 1, 1, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[6] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 1, 1, 1, 0],
-#                [0, 0, 1, 0, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[7] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 0, 1, 0, 1],
-#                [1, 1, 1, 1, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[8] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 1, 1, 0, 0],
-#                [1, 1, 1, 0, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[9] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 1, 1, 0, 0],
-#                [1, 0, 1, 1, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[10] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 0, 1, 0, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[11] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 0, 1, 0, 0],
-#                [0, 1, 1, 1, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[12] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 1, 1, 0, 1],
-#                [0, 1, 1, 0, 1]], dtype=np.uint8)
-# aruco_dict.bytesList[13] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [1, 1, 1, 0, 1],
-#                [0, 0, 1, 1, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[14] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-# ar = np.array([[1, 1, 0, 1, 1],
-#                [1, 1, 0, 1, 1],
-#                [1, 0, 1, 0, 1],
-#                [0, 0, 1, 0, 0],
-#                [0, 0, 1, 0, 0]], dtype=np.uint8)
-# aruco_dict.bytesList[15] = aruco.Dictionary_getByteListFromBits(
-#     np.pad(ar, pad_width=1, mode='constant', constant_values=0))
-#
-#
+aruco_dict = aruco.custom_dictionary(0, 7)
+aruco_dict.bytesList = np.zeros(shape=(16, 7, 4), dtype=np.uint8)
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 0, 1, 1, 0],
+               [1, 1, 1, 0, 1]], dtype=np.uint8)
+aruco_dict.bytesList[1] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 0, 1, 1, 0],
+               [1, 0, 1, 1, 0]], dtype=np.uint8)
+aruco_dict.bytesList[2] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 1, 1, 1, 1],
+               [1, 0, 1, 0, 0]], dtype=np.uint8)
+aruco_dict.bytesList[3] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 1, 1, 1, 0],
+               [0, 1, 1, 1, 0]], dtype=np.uint8)
+aruco_dict.bytesList[4] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 0, 1, 1, 1],
+               [0, 1, 1, 0, 0]], dtype=np.uint8)
+aruco_dict.bytesList[5] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 0, 1, 1, 1],
+               [0, 0, 1, 1, 1]], dtype=np.uint8)
+aruco_dict.bytesList[6] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 1, 1, 1, 0],
+               [0, 0, 1, 0, 1]], dtype=np.uint8)
+aruco_dict.bytesList[7] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 0, 1, 0, 1],
+               [1, 1, 1, 1, 0]], dtype=np.uint8)
+aruco_dict.bytesList[8] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 1, 1, 0, 0],
+               [1, 1, 1, 0, 0]], dtype=np.uint8)
+aruco_dict.bytesList[9] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 1, 1, 0, 0],
+               [1, 0, 1, 1, 1]], dtype=np.uint8)
+aruco_dict.bytesList[10] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 0, 1, 0, 1],
+               [1, 0, 1, 0, 1]], dtype=np.uint8)
+aruco_dict.bytesList[11] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 0, 1, 0, 0],
+               [0, 1, 1, 1, 1]], dtype=np.uint8)
+aruco_dict.bytesList[12] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 1, 1, 0, 1],
+               [0, 1, 1, 0, 1]], dtype=np.uint8)
+aruco_dict.bytesList[13] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [1, 1, 1, 0, 1],
+               [0, 0, 1, 1, 0]], dtype=np.uint8)
+aruco_dict.bytesList[14] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+ar = np.array([[1, 1, 0, 1, 1],
+               [1, 1, 0, 1, 1],
+               [1, 0, 1, 0, 1],
+               [0, 0, 1, 0, 0],
+               [0, 0, 1, 0, 0]], dtype=np.uint8)
+aruco_dict.bytesList[15] = aruco.Dictionary_getByteListFromBits(
+    np.pad(ar, pad_width=1, mode='constant', constant_values=0))
+
+
 
 
 
@@ -238,9 +238,9 @@ class DummyController:
             [self.imu.orientation.x, self.imu.orientation.y, self.imu.orientation.z,
              self.imu.orientation.w])
 
-        # print("kren.    : ", round(r / np.pi * 180))
-        # print("tangazh  : ", round(p / np.pi * 180))
-        # print("ryskanie : ", round(y / np.pi * 180))
+        print("kren.    : ", round(r / np.pi * 180))
+        print("tangazh  : ", round(p / np.pi * 180))
+        print("ryskanie : ", round(y / np.pi * 180))
         if self.kurs is not None:
             self.deltaKurs = self.kurs - y
             if abs(self.deltaKurs) > np.pi:
@@ -296,18 +296,19 @@ class DummyController:
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         matrix_coefficients = np.array([[500., 0, 0], [0, 500, 0], [0, 0, 1]])
-        # distortion_coefficients = np.array(
-        #     [-0.04369359835982323, 0.014616499654948711, -0.006573319900780916, -0.00021690200082957745,
-        #      0.0000843286034069024])
-        #
-        # parameters = aruco.DetectorParameters_create()
-        # corners, ids, rejected_img_points = aruco.detectMarkers(gray, aruco_dict, cameraMatrix=matrix_coefficients,
-        #                                                         distCoeff=distortion_coefficients,
-        #                                                         parameters=parameters)
-        # aruco.drawDetectedMarkers(img, corners)
-        # if len(ids) > 0 and self.last_time_aruco_saved - time.time() > 5:
-        #     self.last_time_aruco_saved = time.time()
-        #     cv2.imwrite(str(time.time()) + "_" + str(ids[0]) + ".png", img)
+        distortion_coefficients = np.array(
+            [-0.04369359835982323, 0.014616499654948711, -0.006573319900780916, -0.00021690200082957745,
+             0.0000843286034069024])
+
+        parameters = aruco.DetectorParameters_create()
+        corners, ids, rejected_img_points = aruco.detectMarkers(gray, aruco_dict, cameraMatrix=matrix_coefficients,
+                                                                distCoeff=distortion_coefficients,
+                                                                parameters=parameters)
+        aruco.drawDetectedMarkers(img, corners)
+        if len(ids) > 0 and self.last_time_aruco_saved - time.time() > 5:
+            self.last_time_aruco_saved = time.time()
+            cv2.imwrite(str(time.time()) + "_" + str(ids[0]) + ".png", img)
+        return corners
 
 
 def main():
